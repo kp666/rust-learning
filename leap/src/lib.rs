@@ -1,21 +1,9 @@
 pub fn is_leap_year(x:i16) -> bool {
-   let y = handle_centuries(x);
-    
-    let reminder = y % 4;
-    if reminder==0{
-        
-     return   true;
-    } else
-    {
-        println!("old");
-        return false;
-    }
+   check_divisibility(x,4) && (
+       !check_divisibility(x,100) || check_divisibility(x,400)
+       )
 }
 
-fn handle_centuries(x:i16) ->i16{
-    if x%100 == 0{
-        x/100
-    }else{
-        x
-    }
+fn check_divisibility(number:i16,divisor:i16) ->bool{
+  number%divisor == 0
 }
