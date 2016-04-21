@@ -1,9 +1,4 @@
-pub fn is_leap_year(x:i16) -> bool {
-   check_divisibility(x,4) ^ (
-       check_divisibility(x,100) ^ check_divisibility(x,400)
-       )
-}
-
-fn check_divisibility(number:i16,divisor:i16) ->bool{
-  number%divisor == 0
+pub fn is_leap_year(number:i16) -> bool {
+    let divisible_by = |divisor:i16|  number%divisor == 0 ;
+   divisible_by(4) ^  divisible_by(100) ^ divisible_by(400)       
 }
