@@ -1,6 +1,6 @@
 pub fn is_leap_year(x:i16) -> bool {
-   check_divisibility(x,4) && (
-       !check_divisibility(x,100) || check_divisibility(x,400)
+   check_divisibility(x,4) ^ (
+       check_divisibility(x,100) ^ check_divisibility(x,400)
        )
 }
 
